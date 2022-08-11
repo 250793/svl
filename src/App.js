@@ -1,16 +1,15 @@
+import { FormBook } from "./components/FormBook/FormBook";
+import { NavBar } from "./components/NavBar/NavBar";
+import { Table } from "./components/Table/Table";
 
-import './App.css';
-import { FormBook } from './components/FormBook';
-import { NavBarTemplate } from './components/NavBarTemplate';
 
 function App() {
   return (
+    <div className="container">
 
-    <div className="App ">
-      <NavBarTemplate />
-      <div className='container'>
-        <FormBook />
-      </div>
+      <NavBar />
+      <FormBook />
+      <Table />
 
     </div>
   );
