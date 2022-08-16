@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+
+
 
 export const Table = () => {
     const [users, setusers] = useState([]);
-
     
     const getUsers = async () => {
-        let url = `https://jsonplaceholder.typicode.com/posts`
+        let url = `https://jsonplaceholder.typicode.com/comments`
         const response = await fetch(url)
         const data = await response.json();
 
@@ -20,21 +22,22 @@ export const Table = () => {
 
 
     const columns = [{
-        dataField: 'userId',
-        text: 'User Id'
-    },
-    {
+
         dataField: 'id',
         text: 'Id'
     },
     {
-        dataField: 'title',
-        text: 'Título'
+        dataField: 'name',
+        text: 'Nome'
 
     },
     {
+        dataField: 'email',
+        text: 'Email'
+    },
+    {
         dataField: 'body',
-        text: 'body'
+        text: 'Texto'
     }
     ]
 
@@ -75,6 +78,8 @@ export const Table = () => {
                 striped
                 hover
                 condensed
+                pagination={ paginationFactory()}
+                
             />
 
         </div>
